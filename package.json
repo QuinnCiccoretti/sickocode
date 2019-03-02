@@ -4,6 +4,8 @@
   "description": "Ideally we teach google to rap. Got a laptop in my back pocket.",
   "main": "index.js",
   "dependencies": {
+    "actions-on-google": "^2.6.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4"
   },
   "devDependencies": {},
