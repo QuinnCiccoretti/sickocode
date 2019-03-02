@@ -28,7 +28,7 @@ app.get('/', function(req, res){
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
-    conv.close("<speak>Yuh,Yuh,Yuh. Goin on you with the pick and roll, Young La Flame he in sicko mode</speak>");
+    conv.close("<speak>Yeah,Yeah,Yeah. Goin on you with the pick and roll, Young La Flame he in sicko mode</speak>");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
