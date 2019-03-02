@@ -8,7 +8,7 @@ var app = express();
 var { dialogflow } = require('actions-on-google');
 var assistantApp = dialogflow();
 var bodyParser = require('body-parser');
-var child_process = require('child_process');
+var spawn = require('child_process').spawn;
 var path = require('path');
 
 // -------------- express initialization -------------- //
@@ -18,30 +18,36 @@ app.set('port', process.env.PORT || 8080 );
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+python_exe = 'python';
+pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
+
 // -------------- express 'get' handlers -------------- //
 // These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
-    res.send('hola');
+    var process = spawn(python_exe, [pythonFile, 'heyyy']);
+    process.stdout.on('data', function(data) {
+        res.send(data.toString());
+    });
 });
 
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
-    conv.close("<speak>Yeah,Yeah,Yeah. Goin on you with the pick and roll, Young La Flame he in sicko mode</speak>");
+    var process = spawn(python_exe, [pythonFile, conv.data.parameters.subject]);
+    process.stdout.on('data', function(data) {
+        conv.close(data.toString());
+    });
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
   conv.ask('<speak>What up,<break time="3s"/> <emphasis level = "strong">fool?</emphasis></speak>');
 })
 
-assistantApp.intent('rap about', conv => {
-    conv.close('Yo');
+assistantApp.intent('Default Fallback Intent', conv => {
+  conv.ask('I didn\'t understand. Can you tell me something else, fool?')
 });
 
-assistantApp.intent('Default Fallback Intent', conv => {
-  conv.ask(`I didn't understand. Can you tell me something else?`)
-})
 // -------------- listener -------------- //
 // // The listener is what keeps node 'alive.'
 
