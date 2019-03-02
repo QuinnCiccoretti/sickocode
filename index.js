@@ -20,16 +20,6 @@ app.get('/', function(req, res){
     res.send('hola');
 });
 
-app.get('/foo', function(req, res){
-    res.send('requested foo');
-});
-
-app.get('/not_a_search', function(req, res){
-    var theQuery = req.query.q;
-    res.send('query parameter:' + theQuery);
-});
-
-
 
 // -------------- listener -------------- //
 // // The listener is what keeps node 'alive.'
