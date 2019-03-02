@@ -34,6 +34,8 @@ app.get('/', function(req, res){
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
+    var xd = conv.data.parameters.subject;
+    console.log(xd);
     var process = spawn(python_exe, [pythonFile, conv.data.parameters.subject]);
     process.stdout.on('data', function(data) {
         conv.close(data.toString());
