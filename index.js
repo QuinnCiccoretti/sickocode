@@ -22,11 +22,11 @@ app.use(bodyParser.json());
 // These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
-    // python_exe = 'python3';
-    // pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
-    // py = child_process.spawnSync(python_exe, [pythonFile, "heyyy"]);
-    // py_response = py['stdout'];
-    // res.send(py_response);
+    python_exe = 'python3';
+    pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
+    py = child_process.spawnSync(python_exe, [pythonFile, 'heyyy']);
+    py_response = py['stdout'];
+    console.log(py_response);
     res.send('hola');
 });
 
@@ -39,6 +39,10 @@ assistantApp.intent('rap', conv => {
     // py_response = py['stdout'].toString();
     conv.close('Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick');
 });
+
+assistantApp.intent('Default Welcome Intent', conv => {
+  conv.ask('What up, fool?');
+})
 
 assistantApp.intent('rap about', conv => {
     conv.close('Yo');
