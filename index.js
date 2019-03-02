@@ -20,11 +20,21 @@ app.use(bodyParser.json());
 // These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
+
     res.send('hola');
 });
+
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
+    python_exe = 'python3';
+    pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
+    py = child_process.spawnSync(python_exe, [pythonFile],  );
+    py_response = py['stdout'].toString();
+    conv.close(py_response);
+});
+
+assistantApp.intent('rap about', conv => {
     conv.close('Yo');
 });
 
