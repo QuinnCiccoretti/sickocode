@@ -8,6 +8,8 @@ var app = express();
 var { dialogflow } = require('actions-on-google');
 var assistantApp = dialogflow();
 var bodyParser = require('body-parser');
+var child_process = require('child_process');
+var path = require('path');
 
 // -------------- express initialization -------------- //
 // PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
@@ -20,18 +22,22 @@ app.use(bodyParser.json());
 // These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
-
+    // python_exe = 'python3';
+    // pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
+    // py = child_process.spawnSync(python_exe, [pythonFile, "heyyy"]);
+    // py_response = py['stdout'];
+    // res.send(py_response);
     res.send('hola');
 });
 
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
-    python_exe = 'python3';
-    pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
-    py = child_process.spawnSync(python_exe, [pythonFile],  );
-    py_response = py['stdout'].toString();
-    conv.close(py_response);
+    // python_exe = 'python3';
+    // pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
+    // py = child_process.spawnSync(python_exe, [pythonFile], 'yooo' );
+    // py_response = py['stdout'].toString();
+    conv.close('Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick');
 });
 
 assistantApp.intent('rap about', conv => {
