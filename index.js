@@ -28,7 +28,11 @@ app.get('/', function(req, res){
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
-    conv.close('<speak><emphasis level = "strong">How sick, so sick that you can duck my <say-as interpret-as="expletive"> dick. </say-as> </emphasis></speak>');
+    conv.close("<speak>\
+    Astro, yeah Sun is down, freezin' cold That's how we already know, winter's here My\
+    dawg would probably do it for a Louis belt That's just all he know, he don't know \
+    nothin' else I tried to show 'em, yeahI tried to show 'em, yeah, yeah\
+	Goin' on you with the pick and roll Young La Flame, he in sicko mode</speak>");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
