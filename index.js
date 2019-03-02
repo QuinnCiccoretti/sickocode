@@ -41,8 +41,8 @@ assistantApp.intent('rap', conv => {
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
-  conv.ask('What up, fool?');
-});
+  conv.ask('<speak>What up,<break time="3s"/> <emphasis level = "strong">fool?</emphasis></speak>');
+})
 
 assistantApp.intent('Default Fallback Intent', conv => {
   conv.ask('I didn\'t understand. Can you tell me something else, fool?')
