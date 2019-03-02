@@ -41,7 +41,7 @@ assistantApp.intent('rap', conv => {
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
-  conv.ask('<emphasis level = "strong"> What up, fool?</emphasis>');
+  conv.ask('<speak><emphasis level = "strong"> What up,<break time="3s"/> fool?</emphasis></speak>');
 })
 
 assistantApp.intent('rap about', conv => {
