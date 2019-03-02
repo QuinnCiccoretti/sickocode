@@ -37,7 +37,7 @@ assistantApp.intent('rap', conv => {
     // pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     // py = child_process.spawnSync(python_exe, [pythonFile], 'yooo' );
     // py_response = py['stdout'].toString();
-    conv.close('<speak><emphasis level = "strong">How sick, so sick that you can suck my<say-as interpret-as="explative" dick.</say-as> </emphasis></speak>');
+    conv.close('<speak><emphasis level = "strong">How sick, so sick that you can suck my<say-as interpret-as="explative"> dick.</say-as> </emphasis></speak>');
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
