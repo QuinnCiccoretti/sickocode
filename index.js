@@ -37,7 +37,7 @@ assistantApp.intent('rap', conv => {
     // pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     // py = child_process.spawnSync(python_exe, [pythonFile], 'yooo' );
     // py_response = py['stdout'].toString();
-    conv.close('Look up in the sky, it’s a bird, it’s a plane. It’s the Funk Doctor spot smoking Buddha on a train. How high, So high so I can kiss the sky. How sick, so sick that you can suck my dick.');
+    conv.close('Look up in the sky, it’s a bird, it’s a plane. It’s the Funk Doctor pot smoking Buddha on a train. How high, So high so I can kiss the sky. How sick, so sick that you can suck my dick.');
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
