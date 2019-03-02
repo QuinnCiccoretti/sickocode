@@ -28,11 +28,7 @@ app.get('/', function(req, res){
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
-    conv.close("<speak>\
-    Astro, yeah Sun is down, freezin' cold That's how we already know, winter's here My\
-    dawg would probably do it for a Louis belt That's just all he know, he don't know \
-    nothin' else I tried to show 'em, yeahI tried to show 'em, yeah, yeah\
-	Goin' on you with the pick and roll Young La Flame, he in sicko mode</speak>");
+    conv.close("<speak>Yuh,Yuh,Yuh. Goin on you with the pick and roll, Young La Flame he in sicko mode</speak>");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
