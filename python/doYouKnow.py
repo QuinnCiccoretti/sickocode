@@ -8,7 +8,7 @@ a_file = open('artists.pk', 'rb')
 artists = pickle.load(a_file)
 a_file.close()
 
-sys.stdout.write(artists[1]);
+sys.stdout.write("bufferr");
 # if input.lower() in artists:
 #     sys.stdout.write("do ")
 #
