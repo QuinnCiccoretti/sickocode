@@ -13,10 +13,10 @@ def generate_data_struct():
         lyrics[each] = s.str.cat(sep='\n\n')
 
     with open('lyrics.pk', 'wb') as handle:
-        pickle.dump(lyrics, handle)
+        pickle.dump(lyrics, handle, protocol=2)
 
     with open('artists.pk', 'wb') as handle:
-        pickle.dump(artists, handle)
+        pickle.dump(artists, handle, protocol=2)
 
 
 def get_lyrics(artist):
