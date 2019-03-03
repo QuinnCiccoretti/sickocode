@@ -47,11 +47,11 @@ assistantApp.intent('raplike', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
-    conv.close('<speak><prosody rate="fast">'+ process.stdout + ". Spit FIRE! </prosody></speak>");
+    conv.close('<speak><prosody rate="x-fast">'+ process.stdout + "? I ain't no copycat bitch! </prosody></speak>");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
-  conv.ask('<speak><prosody rate="fast">What up </prosody><emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</emphasis></prosody></speak>');
+  conv.ask('<speak><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
 })
 
 assistantApp.intent('Default Fallback Intent', conv => {
