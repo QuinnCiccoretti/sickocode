@@ -43,6 +43,13 @@ assistantApp.intent('rap', conv => {
     conv.close(subj + " Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick");
 });
 
+assistantApp.intent('rap like', conv => {
+    var subj = conv.parameters.Subject;
+    console.log("Rapping like:" + subj);
+   
+    conv.close("Rap like "+ subj + "? I ain't no copycat bitch.");
+});
+
 assistantApp.intent('Default Welcome Intent', conv => {
   conv.ask('<speak><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
 })
