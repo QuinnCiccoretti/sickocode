@@ -37,11 +37,12 @@ assistantApp.intent('doyouknow', conv => {
 });
 
 assistantApp.intent('rap', conv => {
-    pythonFile = path.join(__dirname, 'python', 'processing.py');
-    var subj = conv.parameters.subject;
-    var process = spawn(python_exe, [pythonFile]);
-    console.log(process.stdout);
-    conv.close("" + process.stdout);
+    // pythonFile = path.join(__dirname, 'python', 'processing.py');
+    // var subj = conv.parameters.subject;
+    // var process = spawn(python_exe, [pythonFile]);
+    // console.log(process.stdout);
+    // conv.close("" + process.stdout);
+    conv.close('<speak><audio src = "taste.mp3" clipEnd = "25s" /></speak>');
 });
 
 assistantApp.intent('raplike', conv => {
