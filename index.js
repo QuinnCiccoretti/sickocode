@@ -40,6 +40,7 @@ assistantApp.intent('rap', conv => {
     pythonFile = path.join(__dirname, 'python', 'processing.py');
     var subj = conv.parameters.subject;
     var process = spawn(python_exe, [pythonFile]);
+    console.log(process.stdout);
     conv.close("" + process.stdout);
 });
 
