@@ -27,13 +27,16 @@ app.get('/', function(req, res){
 });
 
 app.get('/taste', function(req, res){
-    res.sendFile(__dirname + "/taste.mp3");
+    res.sendFile(__dirname + "/audio/taste.mp3");
 });
 
 app.get('/zeze', function(req, res){
-    res.sendFile(__dirname + "/zeze.mp3");
+    res.sendFile(__dirname + "/audio/zeze.mp3");
 });
 
+app.get('/humble', function(req, res){
+    res.sendFile(__dirname + "/audio/humble.mp3");
+})
 app.use(express.static(__dirname ));
 app.post('/rap', assistantApp);
 
