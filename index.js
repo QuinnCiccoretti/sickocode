@@ -70,7 +70,7 @@ assistantApp.intent('raplike', conv => {
         conv.close(b1 + "10.5s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/zeze.mp3"+e2);
     }
     else if (rando < 1){
-        conv.close(b1 + "10.5s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
+        conv.close(b1 + "7s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
     }
 });
 
