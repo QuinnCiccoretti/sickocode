@@ -36,20 +36,15 @@ app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
     var subj = conv.parameters.Subject;
-    //console.log("Subject:" + subj);
     var process = spawn(python_exe, [pythonFile, subj]);
-    // process.stdout.on('data', function(data) {
-    //     conv.close(data.toString());
-    // });
     conv.close("" + process.stdout);
     //conv.close(subj + " Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick");
 });
 
 assistantApp.intent('raplike', conv => {
     var artist = conv.parameters.artist;
-    console.log("Rapping like:" + artist);
-   
-    conv.close("Rap like "+ artist + "? I ain't no copycat bitch!");
+    var process = spawn(python_exe, [pythonFile, artist]);
+    conv.close("Rap like "+ process.stdout + "? I ain't no copycat bitch!");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
