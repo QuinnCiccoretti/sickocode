@@ -30,6 +30,10 @@ app.get('/taste', function(req, res){
     res.sendFile(__dirname + "/taste.mp3");
 });
 
+app.get('/zeze', function(req, res){
+    res.sendFile(__dirname + "/zeze.mp3");
+});
+
 app.use(express.static(__dirname ));
 app.post('/rap', assistantApp);
 
@@ -55,10 +59,10 @@ assistantApp.intent('raplike', conv => {
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
     if(Math.random() < 0.5){
-        conv.close('<speak><par><media xml:id = "rap" begin = "3s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://www.jovo.tech/audio/XAblQuc0-taste.mp3"/></media></par></speak>');
+        conv.close('<speak><par><media xml:id = "rap" begin = "3s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://jay-z.herokuapp.com/taste"/></media></par></speak>');
     }
     else{
-        conv.close('<speak><par><media xml:id = "rap" begin = "10.5s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://www.jovo.tech/audio/hZq1ZyDc-zeze.mp3"/></media></par></speak>');
+        conv.close('<speak><par><media xml:id = "rap" begin = "10.5s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://jay-z.herokuapp.com/zeze"/></media></par></speak>');
     }
 });
 
