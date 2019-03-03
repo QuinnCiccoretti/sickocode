@@ -45,7 +45,7 @@ assistantApp.intent('rap', conv => {
     //conv.close(subj + " Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick");
 });
 
-assistantApp.intent('rap like', conv => {
+assistantApp.intent('raplike', conv => {
     var subj = conv.parameters.Subject;
     console.log("Rapping like:" + subj);
    
