@@ -1,1 +1,2 @@
 pandas==0.24.1
+language_check==1.1
