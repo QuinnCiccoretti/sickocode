@@ -42,7 +42,7 @@ assistantApp.intent('rap', conv => {
     // var process = spawn(python_exe, [pythonFile]);
     // console.log(process.stdout);
     // conv.close("" + process.stdout);
-    conv.close('<speak><audio src = "taste.mp3" clipEnd = "25s" /></speak>');
+    conv.close('<speak><audio src = "https://www.jovo.tech/audio/XAblQuc0-taste.mp3" clipEnd = "25s" /></speak>');
 });
 
 assistantApp.intent('raplike', conv => {
