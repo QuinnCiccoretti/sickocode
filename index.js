@@ -48,7 +48,7 @@ assistantApp.intent('raplike', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
-    conv.close('<speak><prosody rate="medium">'+ process.stdout + "</prosody></speak>");
+    conv.close('<speak><par><media><prosody rate="medium">'+ process.stdout + '</prosody></media><media><audio src = "taste.mp3"/></media></par></speak>');
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
