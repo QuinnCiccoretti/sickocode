@@ -6,7 +6,8 @@
   "dependencies": {
     "actions-on-google": "^2.6.0",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "numpy": "0.0.1"
   },
   "devDependencies": {},
   "scripts": {
