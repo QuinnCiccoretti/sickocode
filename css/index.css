@@ -45,3 +45,9 @@ h1{
 section {
   padding: 30px 0;
 }
+p{
+    font-size: 30px;
+}
+li{
+    font-size: 25px;
+}
