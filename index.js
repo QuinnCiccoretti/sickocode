@@ -63,14 +63,14 @@ assistantApp.intent('raplike', conv => {
     var e1 = '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "';
     var e2 = '"/></media></par></speak>';
     var rando = Math.random();
-    if(rando < 0.2){
+    if(rando < 0){
         conv.close(b1+ "3s"+ b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/taste.mp3" + e2);
     }
-    else if (rando < .4){
+    else if (rando < 0){
         conv.close(b1 + "10.5s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/zeze.mp3"+e2);
     }
     else if (rando < 1){
-        conv.close(b1 + "7s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
+        conv.close(b1 + "8s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
     }
 });
 
