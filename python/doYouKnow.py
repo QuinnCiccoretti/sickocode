@@ -3,10 +3,15 @@ import sys
 found = False
 
 input = sys.argv[1]
+sys.stdout.write("God damn it. 5")
 a_file = open('artists.txt', 'r')
+sys.stdout.write("God damn it. 4")
 artists = list()
+sys.stdout.write("God damn it.3 ")
 for line in a_file:
+    sys.stdout.write("God damn it. 2")
     artists.append(line[:-1])
+sys.stdout.write("God damn it.1 ")
 a_file.close()
 sys.stdout.write("God damn it. ")
 # if input.lower() in artists:
