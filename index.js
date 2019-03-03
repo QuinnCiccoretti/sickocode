@@ -24,8 +24,7 @@ python_exe = 'python';
 // These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
-    var process = spawn(python_exe, [pythonFile, 'heyyy']);
-    res.send("" + process.stdout);
+    res.sendFile(__dirname + "/index.html");
 });
 
 app.post('/rap', assistantApp);
