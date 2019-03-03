@@ -50,10 +50,10 @@ assistantApp.intent('raplike', conv => {
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
     if(Math.random() < 0.5){
-        conv.close('<speak><par><media xml:id = "rap" begin = "3s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://www.jovo.tech/audio/XAblQuc0-taste.mp3"/></media></par></speak>');
+        conv.close('<speak><par><media xml:id = "rap" begin = "3s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "./taste.mp3"/></media></par></speak>');
     }
     else{
-        conv.close('<speak><par><media xml:id = "rap" begin = "10.5s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://www.jovo.tech/audio/hZq1ZyDc-zeze.mp3"/></media></par></speak>');
+        conv.close('<speak><par><media xml:id = "rap" begin = "10.5s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "./zeze.mp3"/></media></par></speak>');
     }
 });
 
