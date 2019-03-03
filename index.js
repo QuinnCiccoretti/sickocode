@@ -25,6 +25,15 @@ python_exe = 'python';
 app.get('/', function(req, res){
     res.sendFile(__dirname + "/index.html");
 });
+
+app.get('/taste', function(req, res){
+    res.sendFile(__dirname + "/taste.mp3");
+});
+
+app.get('/zeze', function(req, res){
+    res.sendFile(__dirname + "/zeze.mp3");
+});
+
 app.use(express.static(__dirname ));
 app.post('/rap', assistantApp);
 
