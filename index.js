@@ -34,7 +34,7 @@ assistantApp.intent('doyouknow', conv => {
     pythonFile = path.join(__dirname, 'python', 'doYouKnow.py');
     var process = spawn(python_exe, [pythonFile, artist]);
     console.log(process.stdout);
-    conv.ask("I " + process.stdout) + "know " + artist);
+    conv.ask("I " + process.stdout + "know " + artist);
 });
 
 assistantApp.intent('rap', conv => {
