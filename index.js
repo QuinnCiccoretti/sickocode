@@ -49,13 +49,9 @@ assistantApp.intent('doyouknow', conv => {
 });
 
 assistantApp.intent('rap', conv => {
-    // pythonFile = path.join(__dirname, 'python', 'processing.py');
-    // var subj = conv.parameters.subject;
-    // var process = spawn(python_exe, [pythonFile]);
-    // console.log(process.stdout);
-    // conv.close("" + process.stdout);
-    // conv.close('<speak><audio src = "https://www.jovo.tech/audio/XAblQuc0-taste.mp3" clipEnd = "25s" /></speak>');
+    conv.ask('<speak>Tell me someone to rap like, fool!</speak>');
 });
+
 var b1 = '<speak><par><media xml:id = "rap" begin = "';
 var b2 = '"><prosody rate="medium" pitch="-3st">';
 var e1 = '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "';
@@ -64,7 +60,7 @@ assistantApp.intent('raplike', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
-    
+
     var rando = Math.random();
     if(rando < .2){
         conv.close(b1+ "3s"+ b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/taste.mp3" + e2);
