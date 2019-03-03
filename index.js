@@ -35,6 +35,7 @@ app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
     console.log(conv);
+
     //var process = spawn(python_exe, [pythonFile, conv.data.parameters.subject]);
     // var process = spawn(python_exe, [pythonFile, "Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick"]);
     // process.stdout.on('data', function(data) {
@@ -44,7 +45,7 @@ assistantApp.intent('rap', conv => {
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
-  conv.ask('<speak>What up,<break time="3s"/> <emphasis level = "strong">fool?</emphasis></speak>');
+  conv.ask('<speak>What up <emphasis level = "strong">fool?</emphasis></speak>');
 })
 
 assistantApp.intent('Default Fallback Intent', conv => {
