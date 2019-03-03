@@ -1,12 +1,12 @@
 import pickle
 import sys
 
-# found = False
-#
-# input = sys.argv[1]
-# a_file = open('artists.pk', 'rb')
-# artists = pickle.load(a_file)
-# a_file.close()
+found = False
+
+input = sys.argv[1]
+a_file = open('artists.pk', 'rb')
+artists = pickle.load(a_file)
+a_file.close()
 
 sys.stdout.write("bufferr I hackat soylent");
 # if input.lower() in artists:
