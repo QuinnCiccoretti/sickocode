@@ -81,8 +81,10 @@ assistantApp.intent('Default Welcome Intent', conv => {
   conv.ask('<speak><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
 })
 
-assistantApp.intent('Default Fallback Intent', conv => {
-  conv.ask('Say it again, fool, I\'m a damn robot with no ears.')
+assistantApp.intent('freestyle', conv => {
+    pythonFile = path.join(__dirname, 'python', 'py_freestyle.py');
+    var process = spawn(python_exe, [pythonFile, ""]);
+    conv.ask(process.stdout);
 });
 
 // -------------- listener -------------- //
