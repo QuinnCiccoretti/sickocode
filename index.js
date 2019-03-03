@@ -48,9 +48,9 @@ assistantApp.intent('doyouknow', conv => {
     conv.ask("I " + process.stdout + "know " + artist);
 });
 
-assistantApp.intent('rap', conv => {
-    conv.ask('<speak>Tell me someone to rap like, fool!</speak>');
-});
+// assistantApp.intent('rap', conv => {
+//     conv.ask('<speak>Tell me someone to rap like, fool!</speak>');
+// });
 
 var b1 = '<speak><par><media xml:id = "rap" begin = "';
 var b2 = '"><prosody rate="medium" pitch="-3st">';
