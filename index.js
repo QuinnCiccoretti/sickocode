@@ -8,7 +8,7 @@ var app = express();
 var { dialogflow } = require('actions-on-google');
 var assistantApp = dialogflow();
 var bodyParser = require('body-parser');
-var spawn = require('child_process').spawn;
+var spawn = require('child_process').spawnSync;
 var path = require('path');
 
 // -------------- express initialization -------------- //
@@ -26,21 +26,23 @@ pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
 
 app.get('/', function(req, res){
     var process = spawn(python_exe, [pythonFile, 'heyyy']);
-    process.stdout.on('data', function(data) {
-        res.send(data.toString());
-    });
+    // process.stdout.on('data', function(data) {
+    //     res.send(data.toString());
+    // });
+    res.send("" + process.stdout);
 });
 
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
     var subj = conv.parameters.Subject;
-    console.log("Subject:" + subj);
-    // var process = spawn(python_exe, [pythonFile, "Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick"]);
+    //console.log("Subject:" + subj);
+    var process = spawn(python_exe, [pythonFile, subj]);
     // process.stdout.on('data', function(data) {
     //     conv.close(data.toString());
     // });
-    conv.close(subj + " Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick");
+    conv.close("" + process.stdout);
+    //conv.close(subj + " Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
