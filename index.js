@@ -36,7 +36,8 @@ app.post('/rap', assistantApp);
 assistantApp.intent('rap', conv => {
     console.log(conv);
 
-    //var process = spawn(python_exe, [pythonFile, conv.data.parameters.subject]);
+    var process = spawn(python_exe, [pythonFile, conv]);
+    process.stdout.write("Hey hey hey");
     // var process = spawn(python_exe, [pythonFile, "Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick"]);
     // process.stdout.on('data', function(data) {
     //     conv.close(data.toString());
