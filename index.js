@@ -34,12 +34,13 @@ app.get('/', function(req, res){
 app.post('/rap', assistantApp);
 
 assistantApp.intent('rap', conv => {
-    console.log(conv.parameters.Subject);
+    var subj = conv.parameters.Subject;
+    console.log("Subject:" + subj);
     // var process = spawn(python_exe, [pythonFile, "Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick"]);
     // process.stdout.on('data', function(data) {
     //     conv.close(data.toString());
     // });
-    conv.close("Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick");
+    conv.close(subj + " Look up in the sky, it’s a bird, it’s a plane/it’s the Funk Doctor spot smoking Buddha on a train/how high? So high so I can kiss the sky/how sick, so sick that you can suck my dick");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
