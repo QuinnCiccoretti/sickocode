@@ -5,7 +5,7 @@ input = sys.argv[1]
 
 a_file = open("./python/artists.pk", "rb")
 # artists = list()
-artists = pickle.load(a_file)
+artists = pickle.loads(a_file)
 # sys.stdout.write("do ")
 # for line in a_file:
     # artists.append(line[:-1])
