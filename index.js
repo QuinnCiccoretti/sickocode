@@ -51,7 +51,7 @@ assistantApp.intent('raplike', conv => {
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
-  conv.ask('<speak><prosody rate="fast">What up </prosody><emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></speak>');
+  conv.ask('<speak><prosody rate="fast">What up<emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></speak>');
 })
 
 assistantApp.intent('Default Fallback Intent', conv => {
