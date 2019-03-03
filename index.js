@@ -83,7 +83,7 @@ assistantApp.intent('Default Welcome Intent', conv => {
 
 assistantApp.intent('freestyle', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_freestyle.py');
-    var process = spawn(python_exe, [pythonFile, ""]);
+    var process = spawn(python_exe, [pythonFile]);
     conv.close(conv.close(b1 + "8s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
 });
 
