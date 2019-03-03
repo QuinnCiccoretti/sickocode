@@ -3,7 +3,8 @@ import sys
 found = False
 dbg = ""
 input = sys.argv[1]
-a_file = open("artists.txt", "r")
+# sys.stdout.write(__dirname);
+a_file = open("./python/artists.txt", "r")
 sys.stdout.write("God damn it. 4")
 artists = list()
 sys.stdout.write("God damn it.3 ")
