@@ -6,17 +6,17 @@ df = df[df['genre'] == 'Hip-Hop']
 
 
 def generate_data_struct():
-    artists = df['artist'].unique().tolist()
+    artists = df['artist'].unique()
     lyrics = dict()
     for each in artists:
         s = df[df['artist'] == each]['lyrics']
         lyrics[each] = s.str.cat(sep='\n\n')
 
     with open('lyrics.pk', 'wb') as handle:
-        pickle.dump(lyrics, handle)
+        pickle.dump(lyrics, handle, protocol=2)
 
     with open('artists.pk', 'wb') as handle:
-        pickle.dump(artists, handle)
+        pickle.dump(artists, handle, protocol=2)
 
 
 def get_lyrics(artist):

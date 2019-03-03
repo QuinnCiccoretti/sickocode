@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 python_exe = 'python';
-pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
 
 // -------------- express 'get' handlers -------------- //
 // These 'getters' are what fetch your pages
@@ -40,12 +39,14 @@ assistantApp.intent('doyouknow', conv => {
 });
 
 assistantApp.intent('rap', conv => {
+    pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var subj = conv.parameters.subject;
     var process = spawn(python_exe, [pythonFile, subj]);
     conv.close("" + process.stdout);
 });
 
 assistantApp.intent('raplike', conv => {
+    pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
     conv.close("Rap like "+ process.stdout + "? I ain't no copycat bitch!");
