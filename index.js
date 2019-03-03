@@ -63,7 +63,7 @@ assistantApp.intent('raplike', conv => {
     var process = spawn(python_exe, [pythonFile, artist]);
     var b1 = '<speak><par><media xml:id = "rap" begin = "';
     var b2 = '"><prosody rate="medium" pitch="-3st">';
-    var e1 = '</prosody></media><media soundLevel="-5dB" fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "';
+    var e1 = '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "';
     var e2 = '"/></media></par></speak>';
     var rando = Math.random();
     if(rando < .2){
