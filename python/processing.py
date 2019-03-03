@@ -6,6 +6,5 @@ def fix_grammar(str):
     # print(len(matches))
     return language_check.correct(str, matches)
 
-
 text = u'A sentence with a error in the Hitchhiker’s Guide tot he Galaxy'
 sys.stdout.write(fix_grammar(text))

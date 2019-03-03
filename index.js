@@ -37,9 +37,9 @@ assistantApp.intent('doyouknow', conv => {
 });
 
 assistantApp.intent('rap', conv => {
-    pythonFile = path.join(__dirname, 'python', 'py_script_02.py');
+    pythonFile = path.join(__dirname, 'python', 'processing.py');
     var subj = conv.parameters.subject;
-    var process = spawn(python_exe, [pythonFile, subj]);
+    var process = spawn(python_exe, [pythonFile]);
     conv.close("" + process.stdout);
 });
 
