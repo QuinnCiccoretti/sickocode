@@ -37,7 +37,7 @@ assistantApp.intent('doyouknow', conv => {
 });
 
 assistantApp.intent('rap', conv => {
-    pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
+    pythonFile = path.join(__dirname, 'python', 'py_script_02.py');
     var subj = conv.parameters.subject;
     var process = spawn(python_exe, [pythonFile, subj]);
     conv.close("" + process.stdout);
@@ -47,7 +47,7 @@ assistantApp.intent('raplike', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
-    conv.close("Rap like "+ process.stdout + "? I ain't no copycat bitch!");
+    conv.close(process.stdout + "? I ain't no copycat bitch!");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
