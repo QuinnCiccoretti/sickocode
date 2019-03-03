@@ -10,7 +10,7 @@ def generate_data_struct():
     lyrics = dict()
     for each in artists:
         s = df[df['artist'] == each]['lyrics']
-        lyrics[each] = s.str.cat(sep='\n@\n')
+        lyrics[each] = s.str.cat(sep='\n\n')
 
     with open('lyrics.pk', 'wb') as handle:
         pickle.dump(lyrics, handle)
@@ -34,6 +34,6 @@ def get_lyrics(artist):
         return lyrics[artists[1]]
 
 
-# generate_data_struct()
+generate_data_struct()
 
 print(get_lyrics('drake'))
