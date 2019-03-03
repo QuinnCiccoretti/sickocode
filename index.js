@@ -49,7 +49,7 @@ assistantApp.intent('raplike', conv => {
     var artist = conv.parameters.artist;
     console.log("Rapping like:" + artist);
    
-    conv.close("Rap like "+ artist + "? I ain't no copycat bitch.");
+    conv.close("Rap like "+ artist + "? I ain't no copycat bitch!");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
@@ -57,7 +57,7 @@ assistantApp.intent('Default Welcome Intent', conv => {
 })
 
 assistantApp.intent('Default Fallback Intent', conv => {
-  conv.ask('I didn\'t understand. Can you tell me something else, fool?')
+  conv.ask('You fool, what you go to college for if you can\'t speak right?')
 });
 
 // -------------- listener -------------- //
