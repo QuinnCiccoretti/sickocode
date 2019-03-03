@@ -46,10 +46,10 @@ assistantApp.intent('rap', conv => {
 });
 
 assistantApp.intent('raplike', conv => {
-    var subj = conv.parameters.Subject;
-    console.log("Rapping like:" + subj);
+    var artist = conv.parameters.artist;
+    console.log("Rapping like:" + artist);
    
-    conv.close("Rap like "+ subj + "? I ain't no copycat bitch.");
+    conv.close("Rap like "+ artist + "? I ain't no copycat bitch.");
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
