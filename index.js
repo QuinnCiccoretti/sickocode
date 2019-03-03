@@ -49,7 +49,7 @@ assistantApp.intent('raplike', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
-    conv.close('<speak><par><media xml:id = "rap"><prosody rate="medium" pitch="-4st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://www.jovo.tech/audio/XAblQuc0-taste.mp3"/></media></par></speak>');
+    conv.close('<speak><par><media xml:id = "rap" begin = "3s"><prosody rate="medium" pitch="-3st">'+ process.stdout + '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://www.jovo.tech/audio/XAblQuc0-taste.mp3"/></media></par></speak>');
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
