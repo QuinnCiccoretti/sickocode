@@ -8,7 +8,7 @@ f = open("./rap.json", "r")
 rapList = json.load(f)
 
 def censor(rap):
-    badwords = "fuckshitbitchdickpenisvaginapussycuntnigganigger"
+    badwords = "fuck shit bitch dick penis vagina pussy cunt nigga nigger".split()
     i = 0
     rapList = rap.split()
     while i < len(rapList):
