@@ -3,12 +3,12 @@ import sys
 found = False
 input = sys.argv[1]
 
-a_file = open("./python/artists.pk", "rb")
-# artists = list()
-artists = pickle.loads(a_file)
+a_file = open("./python/artists.txt", "rb")
+artists = list()
+# artists = pickle.loads(a_file)
 # sys.stdout.write("do ")
-# for line in a_file:
-    # artists.append(line[:-1])
+for line in a_file:
+    artists.append(line[:-1])
 a_file.close()
 
 if input.lower() in artists:
