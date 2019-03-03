@@ -56,15 +56,15 @@ assistantApp.intent('rap', conv => {
     // conv.close("" + process.stdout);
     // conv.close('<speak><audio src = "https://www.jovo.tech/audio/XAblQuc0-taste.mp3" clipEnd = "25s" /></speak>');
 });
-
+var b1 = '<speak><par><media xml:id = "rap" begin = "';
+var b2 = '"><prosody rate="medium" pitch="-3st">';
+var e1 = '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "';
+var e2 = '"/></media></par></speak>';
 assistantApp.intent('raplike', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
-    var b1 = '<speak><par><media xml:id = "rap" begin = "';
-    var b2 = '"><prosody rate="medium" pitch="-3st">';
-    var e1 = '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "';
-    var e2 = '"/></media></par></speak>';
+    
     var rando = Math.random();
     if(rando < .2){
         conv.close(b1+ "3s"+ b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/taste.mp3" + e2);
@@ -84,7 +84,7 @@ assistantApp.intent('Default Welcome Intent', conv => {
 assistantApp.intent('freestyle', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_freestyle.py');
     var process = spawn(python_exe, [pythonFile, ""]);
-    conv.ask(process.stdout);
+    conv.close(conv.close(b1 + "8s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
 });
 
 // -------------- listener -------------- //
