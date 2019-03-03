@@ -1,6 +1,7 @@
 import sys
 import json
 import random
+import string
 # read input buffer
 rapper = sys.argv[1]
 f = open("./rap.json", "r")
@@ -11,7 +12,7 @@ def censor(rap):
     i = 0
     rapList = rap.split()
     while i < len(rapList):
-        if rapList[i].translate(None, string.punctuation) in badwords:
+        if rapList[i] in badwords:
             rapList[i] = "<say-as interpret-as='expletive'>censor</say-as>"
         i += 1
     return " ".join(rapList)
