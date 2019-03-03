@@ -4,6 +4,7 @@ found = False
 input = sys.argv[1]
 
 a_file = open("./python/artists.txt", "r")
+artists = list()
 # artists = pickle.load(a_file)
 # sys.stdout.write("do ")
 for line in a_file:
