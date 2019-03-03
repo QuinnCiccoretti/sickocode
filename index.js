@@ -57,7 +57,7 @@ assistantApp.intent('Default Welcome Intent', conv => {
 })
 
 assistantApp.intent('Default Fallback Intent', conv => {
-  conv.ask('You fool, what you go to college for if you can\'t speak right?')
+  conv.ask('Say it again, fool, I\'m a damn robot with no ears.')
 });
 
 // -------------- listener -------------- //
