@@ -58,15 +58,15 @@ assistantApp.intent('raplike', conv => {
     pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
+    var b1 = '<speak><par><media xml:id = "rap" begin = "';
+    var b2 = '"><prosody rate="medium" pitch="-3st">';
+    var e1 = '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = ';
+    var e2 = '/></media></par></speak>';
     if(Math.random() < 0.5){
-        conv.close('<speak><par><media xml:id = "rap" begin = "3s"><prosody rate="medium" pitch="-3st">'+ 
-            process.stdout + 
-            '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://jay-z.herokuapp.com/audio/taste.mp3"/></media></par></speak>');
+        conv.close(b1+ "3s"+ b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/taste.mp3" + e2);
     }
     else{
-        conv.close('<speak><par><media xml:id = "rap" begin = "10.5s"><prosody rate="medium" pitch="-3st">'
-            + process.stdout + 
-        '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "https://jay-z.herokuapp.com/audio/zeze.mp3"/></media></par></speak>');
+        conv.close(b1 + "10.5s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/zeze.mp3"+e2);
     }
 });
 
