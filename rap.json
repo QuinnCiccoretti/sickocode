@@ -1,7 +1,22 @@
 {
     "raps": {
-        "kendrick-lamar": [ "Ayy, I remember syrup sandwiches and crime allowances, Finesse a with some counterfeits, but now I'm countin' this",
-         "I get way too petty once you let me do the extras, Pull up on your block, then break it down: we playin' Tetris",
-         "Ayy this shit way too crazy ayy you do not amaze me ayy I blew cool from AC ayy Obama just paged me, ayy" ]
-    }
+    "eazy-e": ["cash is trading killer cross-over , jump in the gutter and go buy another Walkin home and I hyped it And I 'm fuckin ' kinda slow So fe fi fo",
+    "Shut the what up Back the shut up bitch yo you wanna be like me but I 'm a gangster havin fun",
+    "I'm not the bitch to get rich on my phone betta know what should be done Just pull your card"
+    ],
+    "drake": [
+      "Why you want to go , okay, I don't do too much talking these days, Got you angry about this shit for me",  
+    "They can't be scorin perfect , but thinkin ' back on how they treated me My money good , Johnny Manziel Five years later on we're on the Jaguar",
+    "You 'll think of today as the outcome is income You know how sticky these situation can get buried for a room full of brand new"
+    ],
+    "flo-rida":[
+        "Just me and my bitch split it in your bag wo n't tell me what you tell em f.e.d 's I said they got flick ai n't even explain why",
+        "Without you by my side , I got paper and I 'll be ours Lil mama , like a king when I equal , No top for close",
+        "My lips like sugar This candy got you sprung So call me Mr. Hothead , dice in the spot just floatin around"
+    ],
+    "big-sean":[
+        "Man I wish I didn't have to pull back I got my first chain I be thinking about becoming a cop How you feel the same",
+        "Take it to my homies , now roll 10 of 'em up Fuck the police I'ma stack this paper 'til I O-D",
+        "Every wrong I don't ever see the end to lose it twice 'cause history repeats itself 'peats itself"
+    ]
 }
