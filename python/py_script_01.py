@@ -21,8 +21,10 @@ theRap = ""
 rapper = rapper.lower().replace(" ", "-")
 
 if rapper not in rapList["raps"]:
-    theRap += "I can't find that rapper. Random rapper chosen. "
-    rapper = "kendrick-lamar"
+    rapper = random.choice(list(rapList["raps"].keys()))
+    # print(rapper)
+    theRap += "I can't find that rapper. " + rapper + " rapper chosen. "
+
 
 theRap += censor(random.choice(rapList["raps"][rapper]))
 
