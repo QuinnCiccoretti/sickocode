@@ -17,7 +17,6 @@ var path = require('path');
 app.set('port', process.env.PORT || 8080 );
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 python_exe = 'python';
 
 // -------------- express 'get' handlers -------------- //
@@ -26,7 +25,7 @@ python_exe = 'python';
 app.get('/', function(req, res){
     res.sendFile(__dirname + "/index.html");
 });
-
+app.use(express.static(__dirname ));
 app.post('/rap', assistantApp);
 
 assistantApp.intent('doyouknow', conv => {
