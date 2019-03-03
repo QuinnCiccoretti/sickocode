@@ -9,6 +9,7 @@ artists = pickle.load(a_file)
 
 if input in artists:
     sys.stdout.write("do")
+
 else:
     for i in range(len(artists)):
         if input in artists[i].lower():
