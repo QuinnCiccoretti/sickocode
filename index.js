@@ -45,7 +45,7 @@ assistantApp.intent('doyouknow', conv => {
     pythonFile = path.join(__dirname, 'python', 'doYouKnow.py');
     var process = spawn(python_exe, [pythonFile, artist]);
     console.log(process.stdout);
-    conv.ask("I " + process.stdout + "know " + artist);
+    conv.ask("I " + process.stdout + "know " + artist + ". Anything else, fool?");
 });
 
 // assistantApp.intent('rap', conv => {
@@ -74,7 +74,7 @@ assistantApp.intent('raplike', conv => {
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
-  conv.ask('<speak><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
+  conv.ask('<speak><emphasis level = "strong">Warning: this app contains mature content</emphasis><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
 })
 
 assistantApp.intent('freestyle', conv => {
