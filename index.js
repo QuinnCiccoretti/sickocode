@@ -42,7 +42,7 @@ app.use(express.static(__dirname ));
 app.post('/rap', assistantApp);
 
 assistantApp.intent('doyouknow', conv => {
-    var artist = conv.parameters.artist;    
+    var artist = conv.parameters.artist;
     conv.ask("Of course I know " + artist + ", anything else, fool?");
 });
 
@@ -74,6 +74,10 @@ assistantApp.intent('raplike', conv => {
 
 assistantApp.intent('Default Welcome Intent', conv => {
   conv.ask('<speak><emphasis level = "strong">Warning: this app contains mature content</emphasis><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
+})
+
+assistantApp.intent('Default FallBack Intent', conv => {
+  conv.ask('<speak><emphasis level = "strong">Didn\'t catch yo drift!</emphasis><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
 })
 
 assistantApp.intent('freestyle', conv => {
