@@ -62,13 +62,13 @@ assistantApp.intent('raplike', conv => {
 
     var rando = Math.random();
     if(rando < .4){
-        conv.close(b1+ "3s"+ b2 + process.stdout + e1 + audio_dir + "taste.mp3" + e2);
+        conv.close(b1+ "3s"+ b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/taste.mp3" + e2);
     }
     else if (rando < .9){
-        conv.close(b1 + "10.5s"+b2 + process.stdout + e1 + audio_dir +"zeze.mp3"+e2);
+        conv.close(b1 + "10.5s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/zeze.mp3"+e2);
     }
     else{
-        conv.close(b1 + "8s"+b2 + process.stdout + e1 + audio_dir + "humble.mp3"+e2);
+        conv.close(b1 + "8s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
     }
 });
 
