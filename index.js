@@ -10,6 +10,7 @@ var assistantApp = dialogflow();
 var bodyParser = require('body-parser');
 var spawn = require('child_process').spawnSync;
 var path = require('path');
+var Alexa = require('ask-sdk-core');
 
 // -------------- express initialization -------------- //
 // PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
@@ -83,7 +84,7 @@ assistantApp.intent('freestyle', conv => {
     conv.close(b1 + "8s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
 });
 
-app.post('/rap2', function(req, res)){
+app.post('/rap2', function(req, res){
     res.send("YO");
 });
 
