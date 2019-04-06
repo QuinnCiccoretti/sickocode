@@ -76,7 +76,7 @@ assistantApp.intent('Default Welcome Intent', conv => {
   conv.ask('<speak><emphasis level = "strong">Warning: this app contains mature content</emphasis><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
 })
 
-assistantApp.intent('Default FallBack Intent', conv => {
+assistantApp.intent('Default Fallback Intent', conv => {
   conv.ask('<speak><emphasis level = "strong">Didn\'t catch yo drift!</emphasis><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
 })
 
