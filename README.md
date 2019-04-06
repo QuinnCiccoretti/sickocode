@@ -8,3 +8,7 @@ down the volume.
 
 http://www.sickocode.com/  
 https://devpost.com/software/sicko-code
+
+## To Do:
+ - Shorten length of freestyle
+ - Convert python process to javascript
