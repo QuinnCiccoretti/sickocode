@@ -12,7 +12,7 @@ def censor(rap):
     rapList = rap.split();
     for i in range(rapList):
         # if [m.start() for m in re.finditer('fuck|shit|nigg|dick|penis|vagina|pussy|cunt', word)]:
-        if re.search('[a-z]*(fuck|shit|nigg|dick|penis|vagina|pussy|cunt)[a-z]*', rapList[i]) is not None:
+        if re.search('.*(fuck|shit|nigg|dick|penis|vagina|pussy|cunt|f\*\*\*).*', rapList[i]) is not None:
             rapList[i] = "<say-as interpret-as='expletive'>censor</say-as>"
 
     return " ".join(rapList)
