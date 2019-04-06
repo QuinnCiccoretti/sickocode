@@ -20,19 +20,23 @@ import time
 
 df = pd.read_csv('lyrics.csv', sep=',')
 
-def generate_data_struct(auteur, df):
-    lyrics = df[df['artist']==auteur]['lyrics'].to_frame().rename(columns = {0: 'lyrics'})
+def generate_data_struct(df):
+    lyrics = df.sample(1000)#df[df['artist']==auteur]['lyrics'].to_frame().rename(columns = {0: 'lyrics'})
     #def rstrip(s):
     #    return s.replace('\r', '')
     lyrics_r = pd.Series()
     lyrics_n = list()
     for each in lyrics['lyrics']:
         #lyrics_n.append('SONG')
-        s = 'SON6\n' + str(each)
+        s = str(each)
         s = s.replace('\r', '').split('\n')
         #print(s)
         s = [a + '\n' for a in s]
-        
+        copy = s
+        for a in copy:
+            if a[0] == '[':
+                s.remove(a)
+       
         lyrics_r = lyrics_r.append(pd.DataFrame(s))
         #lyrics_n = pd.DataFrame(lyrics_n)
     
@@ -42,7 +46,13 @@ def generate_data_struct(auteur, df):
     print(lyrics_r.head(50))
     lyrics_r = lyrics_r.reset_index()
     return lyrics_r
-#generate_data_struct("drake", df)
+gen = generate_data_struct(df)
+gen = gen.sample(10000)
+gen = gen[0]
+gen = gen.replace(np.nan, '', regex=True)
+gen = gen.rename(columns={0: 'text'})
+gen = gen.reset_index()
+gen = gen.drop(columns = ['index'])
 
 
     #print(lyrics['drake'])
@@ -52,6 +62,9 @@ chapters = r'SON6'
 paragraphs = r'\n\n+'#r'^(\n\n+)*$'
 sentences = r'([.;?!"“”]+)'
 words = r'(\W+)'
+
+#gen = df.sample(1000)
+
 
 start = time.time()
 time.clock()
@@ -65,6 +78,8 @@ text = text[1:]
 
 #df = generate_data_struct("eazy-e", df) 
 df = pd.DataFrame(text, columns = ['text'])
+frames = [df, gen]
+result = pd.concat([df, gen], ignore_index = True, axis=0)
 #def addp(s):
 #    if(s=="\n"):
 #        return s
@@ -124,9 +139,7 @@ prgrph.pgr_strings = prgrph.pgr_strings.str.strip() #separates everything
 prgrph.pgr_strings = prgrph.pgr_strings.str.replace(r'\n', ' ') #replace newline with space
 prgrph.pgr_strings = prgrph.pgr_strings.str.replace(r'\s+', ' ') #replace space(s) with space
 prgrph = prgrph[~prgrph.pgr_strings.str.match(r'^\s*$')] #puts all unmatched strings into df
-end2 = time.time()
-total2 = end2 - start2
-print(total2)
+
 #endii = time2.time()
 #timeii = endii-startii
 #print(timeii)
@@ -140,6 +153,8 @@ print(total2)
 #prgrph[~prgrph.pgr_strings.str.match(r'^\s*$')] #
 
 #print(chapter_text.groups)
+
+
 def st(line):
     return pd.Series(nltk.sent_tokenize(line))
 sntnc = prgrph['pgr_strings'].apply(st).stack().to_frame()
@@ -165,6 +180,12 @@ token = token.drop('tokentuple', 1)
 token['punc'] = token.tokens.str.match(r'^[\W_]*$').astype('bool')
 token['number'] = token.tokens.str.match(r'\d').astype('bool')
 
+end2 = time.time()
+total2 = end2 - start2
+print(total2)
+
+
+start3 = time.time()
 vocab = pd.DataFrame([token.tokens, token.punc, token.number]).transpose()
 #vocab = vocab[(vocab['punc'] == False) & (vocab['number'] == False)]
 vocab = vocab[(vocab['number'] == False)]
@@ -206,11 +227,14 @@ vocab['p_stem'] = vocab['temp'].apply(stemmer.stem)
 #intersection['s'] = intersection['terms'].apply(truth())
 vocab = vocab.drop('temp', axis = 1)
 #vocab = vocab.set_index('id')
-
+end3 = time.time()
+total3 = end3-start3
+print(total3)
 #nltk.help.upenn_tagset()
 #print(token.index[:3])9'tg   
 #pos=token.groupby(token.index.names[:3]).tokens.apply(lambda x: add_pos(x))
 #pos=pos.rename(columns = {0: 'pos'})
+start4 = time.time()
 index_names = token.index.names
 print(token.index.names[:2])
 token['temp'] = token['tokens'].str.lower()
@@ -234,8 +258,12 @@ print(train.head())
 print(len([token['group'] == 'test']))
 test = token.groupby('group').get_group('test')
 
+end4 = time.time()
+total4 = end4 - start4
+print(total4)
 #print(test['tokens'].shape())
 
+start5 = time.time()
 def get_ngrams(tokens, n=2):
     
     # Create list to store copies of tokens table
@@ -270,9 +298,14 @@ def get_ngrams(tokens, n=2):
     # Return just the ngram tables
     return X
 
+
 print(train.head())
 UGM, BGM, TGM = get_ngrams(train, n=3)
 UGT, BGT, TGT = get_ngrams(test, n=3)
+
+end5 = time.time()
+total5 = end5-start5
+print(total5)
 #print(TGM.head(20))
 def align_model(ngm, ngt):
   idx = ngm.index.names
@@ -308,7 +341,7 @@ def perplexity(ngm, ngt):
 ppu = perplexity(UGM, UGT)
 ppb = perplexity(BGM, BGT)
 ppt = perplexity(TGM, TGT)
-print(ppt)
+print("perplexity:", ppt)
 test = ''
 n = 1000
 #print(TGM.head(100))
