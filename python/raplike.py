@@ -1,4 +1,4 @@
-rimport sys
+import sys
 import json
 import random
 import string
