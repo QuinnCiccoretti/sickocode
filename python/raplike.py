@@ -8,13 +8,12 @@ f = open("./rap.json", "r")
 rapList = json.load(f)
 
 def censor(rap):
-    badwords = "motherfucking motherfuckin motherfuck fuck fuckin fucking shit shits bitch bitches dick penis vagina pussy cunt nigga nigger niggas niggers".split()
-    i = 0
-    rapList = rap.split()
-    while i < len(rapList):
-        if rapList[i] in badwords:
+    rapList = rap.split();
+    for i in range(len(rapList)):
+        # if [m.start() for m in re.finditer('fuck|shit|nigg|dick|penis|vagina|pussy|cunt', word)]:
+        if re.search('.*(bitch|fuck|shit|nigg|dick|penis|vagina|pussy|cunt|f\*\*\*).*', rapList[i].lower()) is not None:
             rapList[i] = "<say-as interpret-as='expletive'>censor</say-as>"
-        i += 1
+
     return " ".join(rapList)
 
 theRap = ""
