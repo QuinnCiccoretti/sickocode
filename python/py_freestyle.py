@@ -24,7 +24,7 @@ if rapper not in rapList["raps"]:
     # print(rapper)
     theRap += "I can't find that rapper. " + rapper + " rapper chosen. "
 
-for i in range(0,10):
+for i in range(0,6):
     rapper = random.choice(list(rapList["raps"].keys()))
     theRap += censor(random.choice(rapList["raps"][rapper]))
 
