@@ -2,6 +2,7 @@ import sys
 import json
 import random
 import string
+import re
 # read input buffer
 rapper = sys.argv[1]
 f = open("./rap.json", "r")
