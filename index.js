@@ -55,7 +55,7 @@ var b2 = '"><prosody rate="medium" pitch="-3st">';
 var e1 = '</prosody></media><media fadeOutDur = "5.0s" end = "rap.end+5.0s"><audio src = "';
 var e2 = '"/></media></par></speak>';
 assistantApp.intent('raplike', conv => {
-    pythonFile = path.join(__dirname, 'python', 'py_script_01.py');
+    pythonFile = path.join(__dirname, 'python', 'raplike.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
 
