@@ -41,16 +41,12 @@ app.get('/humble', function(req, res){
 app.use(express.static(__dirname ));
 app.post('/rap', assistantApp);
 
-assistantApp.intent('doyouknow', conv => {
-    var artist = conv.parameters.artist;
-    pythonFile = path.join(__dirname, 'python', 'doYouKnow.py');
-    var process = spawn(python_exe, [pythonFile, artist]);
-    console.log(process.stdout);
-    conv.ask("I " + process.stdout + "know " + artist + ". Anything else, fool?");
-});
-
-// assistantApp.intent('rap', conv => {
-//     conv.ask('<speak>Tell me someone to rap like, fool!</speak>');
+// assistantApp.intent('doyouknow', conv => {
+//     var artist = conv.parameters.artist;
+//     pythonFile = path.join(__dirname, 'python', 'doYouKnow.py');
+//     var process = spawn(python_exe, [pythonFile, artist]);
+//     console.log(process.stdout);
+//     conv.ask("I " + process.stdout + "know " + artist + ". Anything else, fool?");
 // });
 
 var b1 = '<speak><par><media xml:id = "rap" begin = "';
@@ -85,7 +81,20 @@ assistantApp.intent('freestyle', conv => {
 });
 
 app.post('/rap2', function(req, res){
-    res.send("YO");
+    // Build the context manually, because Amazon Lambda is missing
+    var context = {
+        succeed: function (result) {
+            console.log(result);
+            res.json(result);
+        },
+        fail:function (error) {
+            console.log(error);
+        }
+    };
+    // Delegate the request to the Alexa SDK and the declared intent-handlers
+    var alexa = Alexa.handler(req.body, context);
+    alexa.registerHandlers(handlers);
+    alexa.execute();
 });
 
 // -------------- listener -------------- //
