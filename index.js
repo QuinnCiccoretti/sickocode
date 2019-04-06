@@ -83,6 +83,10 @@ assistantApp.intent('freestyle', conv => {
     conv.close(b1 + "8s"+b2 + process.stdout + e1 + "https://jay-z.herokuapp.com/audio/humble.mp3"+e2);
 });
 
+app.post('/rap2', function(req, res)){
+    res.send("YO");
+});
+
 // -------------- listener -------------- //
 // // The listener is what keeps node 'alive.'
 
