@@ -24,7 +24,7 @@ python_exe = 'python';
 // These 'getters' are what fetch your pages
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/frontpage/");
 });
 
 app.get('/taste', function(req, res){
@@ -39,6 +39,7 @@ app.get('/humble', function(req, res){
     res.sendFile(__dirname + "/audio/humble.mp3");
 })
 app.use(express.static(__dirname ));
+app.use(express.static("frontpage"));
 app.post('/rap', assistantApp);
 
 assistantApp.intent('doyouknow', conv => {
