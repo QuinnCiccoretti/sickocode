@@ -1,7 +1,7 @@
 {
-  "name": "apirapper",
+  "name": "sickocode",
   "version": "1.0.0",
-  "description": "Ideally we teach google to rap. Got a laptop in my back pocket.",
+  "description": "Ok google, talk to sickocode, freestyle.",
   "main": "index.js",
   "dependencies": {
     "actions-on-google": "^2.6.0",
