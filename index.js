@@ -40,6 +40,7 @@ app.get('/humble', function(req, res){
 })
 app.use(express.static(__dirname ));
 app.use(express.static("frontpage"));
+app.use(express.static("audio"));
 app.post('/rap', assistantApp);
 
 assistantApp.intent('doyouknow', conv => {
