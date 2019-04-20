@@ -8,7 +8,8 @@
     "ask-sdk": "^2.5.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "numpy": "0.0.1"
+    "numpy": "0.0.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {},
   "scripts": {

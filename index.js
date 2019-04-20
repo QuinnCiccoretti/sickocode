@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 var spawn = require('child_process').spawnSync;
 var path = require('path');
 var Alexa = require('ask-sdk-core');
+
 var audio_files = [{"humble.mp3":8},
 ["ric.mp3" , 0],
 ["taste.mp3" , 3],
@@ -19,6 +20,18 @@ var audio_files = [{"humble.mp3":8},
 ["indaclub.mp3" , 5.5],
 ["stilldre.mp3" , 10.5],
 ["win.mp3" ,  7]];
+
+var uuidv1 = require('uuid/v1');
+//var admin = require("firebase-admin");
+//var serviceAccount = require("firebaseAdmin.json");
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://spitfire-351dd.firebaseio.com"
+// });
+//
+// var db = admin.database();
+// var users = db.ref("users");
 // -------------- express initialization -------------- //
 // PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
 
@@ -68,13 +81,15 @@ assistantApp.intent('raplike', conv => {
     pythonFile = path.join(__dirname, 'python', 'raplike.py');
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
+
     var rand = audio_dir[Math.floor(Math.random() * audio_dir.length)];
     var ssml_str = b1+ rand[1]+"s"+ b2 + process.stdout + e1 + audio_dir + rand[0] + e2;
     conv.close(ssml_str);
+
 });
 
 assistantApp.intent('Default Welcome Intent', conv => {
-  conv.ask('<speak><emphasis level = "strong">Warning: this app contains mature content</emphasis><prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
+  conv.ask('<speak>' + sayMature(conv) + '<prosody rate="x-fast">What up <emphasis level = "strong"><prosody rate="x-slow" pitch="-2st">fool?</prosody></emphasis></prosody></speak>');
 })
 
 assistantApp.intent('Default Fallback Intent', conv => {
@@ -82,9 +97,10 @@ assistantApp.intent('Default Fallback Intent', conv => {
 })
 
 assistantApp.intent('freestyle', conv => {
+
     pythonFile = path.join(__dirname, 'python', 'py_freestyle.py');
     var process = spawn(python_exe, [pythonFile]);
-    conv.close(b1 + "8s"+b2 + process.stdout + e1 + audio_dir + "humble.mp3"+e2);
+    conv.close(b1 + "8s"+b2 + sayMature(conv) + process.stdout + e1 + audio_dir + "humble.mp3"+e2);
 });
 
 app.post('/rap2', function(req, res){
@@ -97,3 +113,19 @@ app.post('/rap2', function(req, res){
 var listener = app.listen(app.get('port'), function() {
   console.log( 'Express server started on port: '+listener.address().port );
 });
+
+function sayMature(conv){
+    let userId;
+    // if a value for userID exists un user storage, it's a returning user so we can
+    // just read the value and use it. If a value for userId does not exist in user storage,
+    // it's a new user, so we need to generate a new ID and save it in user storage.
+    if ('userId' in conv.user.storage) {
+      userId = conv.user.storage.userId;
+      return "";
+    } else {
+      // generateUUID is your function to generate ids.
+      userId = uuidv1();
+      conv.user.storage.userId = userId
+      return '<emphasis level = "strong">Warning: this app contains mature content</emphasis>';
+    }
+}
