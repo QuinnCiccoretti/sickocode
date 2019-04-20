@@ -12,7 +12,7 @@ var spawn = require('child_process').spawnSync;
 var path = require('path');
 var Alexa = require('ask-sdk-core');
 
-var audio_files = [{"humble.mp3":8},
+var audio_files = [["humble.mp3":8],
 ["ric.mp3" , 0],
 ["taste.mp3" , 3],
 ["zeze.mp3" , 10.5],
