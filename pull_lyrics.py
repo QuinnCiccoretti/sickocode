@@ -14,17 +14,19 @@ Created on Tue Mar 12 02:31:31 2019
 from tswift import Artist
 import random
 import time
-
-tswift = Artist('Travis Scott')
-start = time.time()
-songs = tswift.songs
-#print(songs.format())
-file = open('testl.txt', 'w', encoding ='utf8')
-for i in songs:
-    file.write("\nSON6\n")
-    file.write(i.format())
+def gen_lyrics(artist, filename):
+    tswift = Artist(artist)
     
-file.close()
+    songs = tswift.songs
+    #print(songs.format())
+    file = open(filename, 'w', encoding ='utf8')
+    for i in songs:
+        file.write("\nSON6\n")
+        file.write(i.format())
+        
+    file.close()
+start = time.time()
+gen_lyrics('Travis Scott', 'test1')
 end = time.time()
 time = end - start
 print(time)
