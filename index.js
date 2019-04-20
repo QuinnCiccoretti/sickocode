@@ -82,7 +82,7 @@ assistantApp.intent('raplike', conv => {
     var artist = conv.parameters.artist;
     var process = spawn(python_exe, [pythonFile, artist]);
 
-    var rand = audio_dir[Math.floor(Math.random() * audio_dir.length)];
+    var rand = audio_files[Math.floor(Math.random() * audio_files.length)];
     var ssml_str = b1+ rand[1]+"s"+ b2 + process.stdout + e1 + audio_dir + rand[0] + e2;
     console.log(ssml_str);
     conv.close(ssml_str);
