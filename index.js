@@ -11,16 +11,16 @@ var bodyParser = require('body-parser');
 var spawn = require('child_process').spawnSync;
 var path = require('path');
 var Alexa = require('ask-sdk-core');
-var admin = require("firebase-admin");
-var serviceAccount = require("firebaseAdmin.json");
+//var admin = require("firebase-admin");
+//var serviceAccount = require("firebaseAdmin.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://spitfire-351dd.firebaseio.com"
-});
-
-var db = admin.database();
-var users = db.ref("users");
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://spitfire-351dd.firebaseio.com"
+// });
+//
+// var db = admin.database();
+// var users = db.ref("users");
 
 // -------------- express initialization -------------- //
 // PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
