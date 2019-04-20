@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 var spawn = require('child_process').spawnSync;
 var path = require('path');
 var Alexa = require('ask-sdk-core');
+var uuidv1 = require('uuid/v1');
 //var admin = require("firebase-admin");
 //var serviceAccount = require("firebaseAdmin.json");
 
@@ -119,7 +120,7 @@ function sayMature(conv){
       return "";
     } else {
       // generateUUID is your function to generate ids.
-      userId = generateUUID();
+      userId = uuidv1();
       conv.user.storage.userId = userId
       return '<emphasis level = "strong">Warning: this app contains mature content</emphasis>';
     }
