@@ -101,7 +101,8 @@ assistantApp.intent('freestyle', conv => {
 
     pythonFile = path.join(__dirname, 'python', 'py_freestyle.py');
     var process = spawn(python_exe, [pythonFile]);
-    conv.close(b1 + "8s"+b2 + sayMature(conv) + process.stdout + e1 + audio_dir + "humble.mp3"+e2);
+    var rand = audio_files[Math.floor(Math.random() * audio_files.length)];
+    conv.close(b1 + rand[1] + "s"+b2 + sayMature(conv) + process.stdout + e1 + audio_dir + rand[0] +e2);
 });
 
 app.post('/rap2', function(req, res){
