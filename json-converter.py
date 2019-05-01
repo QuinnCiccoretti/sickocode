@@ -17,7 +17,7 @@ for name in artists:
     count+=1
     pull_lyrics.gen_lyrics(name, 'testl.txt')
     true_ngrams.do('out_'+name+'.txt')
-    file = open('output.txt', 'r')
+    file = open('out_'+name+'.txt', 'r')
     lyrics = file.read()
     raps.append(lyrics)
     everything[name] = raps
